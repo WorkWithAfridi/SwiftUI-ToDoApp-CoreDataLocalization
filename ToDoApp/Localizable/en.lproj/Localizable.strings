@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  ToDoApp
+
+  Created by Khondakar Afridi on 11/27/23.
+  
+*/
+"hello" = "Hello, world!";
+"Todo App" = "Todo App in English";
+"Work" = "Work";
+"Music" = "Music";
+"Travel" = "Travel";
+"Study" = "Study";
+"Home" = "Home";
+"Shoping" = "Shoping";
+"Gift" = "Gift";
+"Ideas" = "Ideas";
+"Payment" = "Payment";
+"Cooking" = "Cooking";
+"Health" = "Health";
+"Finance" = "Finance";
+"Others" = "Others";
+"Select Category" = "Select Category";
+"add note" = "add note";
+"What are your planning?" = "What are your planning?";
+"Add" = "Add";
+"All" = "Alle";

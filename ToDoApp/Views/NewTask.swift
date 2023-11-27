@@ -100,7 +100,7 @@ struct NewTaskHeaderView: View {
     var body: some View{
         HStack{
             Spacer()
-            Text("New Task")
+            Text( "New Task")
                 .font(.title2)
                 .fontWeight(.medium)
             Spacer()
@@ -181,7 +181,9 @@ struct NewTaskBottomView: View{
                     .foregroundColor(.gray)
                     .frame(width: 30, height: 30, alignment: .leading)
                 VStack{
-                    Text(categoryName)
+                    Text(
+                        LocalizedStringKey(categoryName)
+                        )
                         .foregroundColor(categoryName == "Select Category" ? .gray : .black)
                 }
                 Spacer()
@@ -210,7 +212,9 @@ struct CategoryView: View{
                         Image(cat.categoryImage)
                             .resizable()
                             .frame(width: 20, height: 20)
-                        Text(cat.categoryName)
+                        Text(
+                            LocalizedStringKey(cat.categoryName)
+                            )
                             .font(.callout)
                             .fontWeight(.regular)
                         Spacer()

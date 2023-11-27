@@ -26,6 +26,9 @@
 		74C128ED26AD258E00324D35 /* NewTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C128EC26AD258E00324D35 /* NewTask.swift */; };
 		74C128EF26AD370B00324D35 /* NewTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C128EE26AD370B00324D35 /* NewTaskViewModel.swift */; };
 		74C128F126AD5A7300324D35 /* TaskDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C128F026AD5A7300324D35 /* TaskDetailView.swift */; };
+		EF659DCC2B14936100E90287 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EF659DCE2B14936100E90287 /* Localizable.strings */; };
+		EF659DD12B14A5E800E90287 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF659DD02B14A5E800E90287 /* LanguageManager.swift */; };
+		EF659DD32B14A9A600E90287 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF659DD22B14A9A600E90287 /* Toast.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +53,10 @@
 		74C128EC26AD258E00324D35 /* NewTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTask.swift; sourceTree = "<group>"; };
 		74C128EE26AD370B00324D35 /* NewTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskViewModel.swift; sourceTree = "<group>"; };
 		74C128F026AD5A7300324D35 /* TaskDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailView.swift; sourceTree = "<group>"; };
+		EF659DCD2B14936100E90287 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EF659DCF2B14936900E90287 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EF659DD02B14A5E800E90287 /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
+		EF659DD22B14A9A600E90287 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +102,7 @@
 		744B225A26A98FB600AB08E7 /* ToDoApp */ = {
 			isa = PBXGroup;
 			children = (
+				EF659DC12B14928200E90287 /* Localizable */,
 				7410B2EB26AD9831008E425B /* Screenshot */,
 				744B226E26A98FDF00AB08E7 /* Model */,
 				744B226D26A98FD700AB08E7 /* ViewModel */,
@@ -124,6 +132,7 @@
 				744B226A26A98FC600AB08E7 /* LandingView.swift */,
 				74C128EC26AD258E00324D35 /* NewTask.swift */,
 				74C128F026AD5A7300324D35 /* TaskDetailView.swift */,
+				EF659DD22B14A9A600E90287 /* Toast.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -144,6 +153,15 @@
 				74C128E526AD18A000324D35 /* CategoryModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		EF659DC12B14928200E90287 /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				EF659DCE2B14936100E90287 /* Localizable.strings */,
+				EF659DD02B14A5E800E90287 /* LanguageManager.swift */,
+			);
+			path = Localizable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,6 +205,7 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
 			);
 			mainGroup = 744B224F26A98FB600AB08E7;
 			productRefGroup = 744B225926A98FB600AB08E7 /* Products */;
@@ -207,6 +226,7 @@
 				7410B2F326AD9859008E425B /* 3.png in Resources */,
 				744B226026A98FB900AB08E7 /* Assets.xcassets in Resources */,
 				7410B2F726AD9859008E425B /* 1.png in Resources */,
+				EF659DCC2B14936100E90287 /* Localizable.strings in Resources */,
 				7410B2F226AD9859008E425B /* 2.png in Resources */,
 				7410B2F626AD9859008E425B /* 4.png in Resources */,
 				7410B2F426AD9859008E425B /* 5.png in Resources */,
@@ -221,9 +241,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF659DD32B14A9A600E90287 /* Toast.swift in Sources */,
 				74C128EF26AD370B00324D35 /* NewTaskViewModel.swift in Sources */,
 				744B226B26A98FC600AB08E7 /* LandingView.swift in Sources */,
 				74C128E626AD18A000324D35 /* CategoryModel.swift in Sources */,
+				EF659DD12B14A5E800E90287 /* LanguageManager.swift in Sources */,
 				74C128F126AD5A7300324D35 /* TaskDetailView.swift in Sources */,
 				744B227226A991F000AB08E7 /* TaskList.swift in Sources */,
 				74C128ED26AD258E00324D35 /* NewTask.swift in Sources */,
@@ -237,11 +259,24 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		EF659DCE2B14936100E90287 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EF659DCD2B14936100E90287 /* en */,
+				EF659DCF2B14936900E90287 /* de */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		744B226526A98FB900AB08E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -303,6 +338,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -361,7 +397,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"ToDoApp/Preview Content\"";
-				DEVELOPMENT_TEAM = HKFNV2JRF8;
+				DEVELOPMENT_TEAM = 922L4HAC7Y;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = ToDoApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -369,7 +405,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sabari.ToDoApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ktesto.todoapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -383,7 +419,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"ToDoApp/Preview Content\"";
-				DEVELOPMENT_TEAM = HKFNV2JRF8;
+				DEVELOPMENT_TEAM = 922L4HAC7Y;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = ToDoApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -391,7 +427,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sabari.ToDoApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ktesto.todoapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

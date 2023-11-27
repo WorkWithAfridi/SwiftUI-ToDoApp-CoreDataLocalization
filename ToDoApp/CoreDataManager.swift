@@ -52,4 +52,9 @@ class CoreDataManager {
         }
     }
     
+    func deleteTask(task: Task) {
+        viewContext.delete(task)
+        save()
+    }
+    
 }

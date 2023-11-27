@@ -15,17 +15,19 @@ class LandingViewModel: ObservableObject {
     ]
     @Published var taskArray:[Task] = []
     
+    @Published var isLangEng: Bool = true
+    
     
     /// Task Mock Data
     func getTaskList(){
         let taskList = [
-            TaskList(categoryName: "All", noOfTasks: 53, categoryImage: Image("task_all"), categoryId: 0),
-            TaskList(categoryName: "Work", noOfTasks: 2, categoryImage: Image("task_work"), categoryId: 1),
+            TaskList(categoryName:  "All", noOfTasks: 53, categoryImage: Image("task_all"), categoryId: 0),
+            TaskList(categoryName:"Work", noOfTasks: 2, categoryImage: Image("task_work"), categoryId: 1),
             TaskList(categoryName: "Music", noOfTasks: 15, categoryImage: Image("task_music"), categoryId: 2),
             TaskList(categoryName: "Travel", noOfTasks: 18, categoryImage: Image("task_travel"), categoryId: 3),
             TaskList(categoryName: "Study", noOfTasks: 2, categoryImage: Image("task_study"), categoryId: 4),
-            TaskList(categoryName: "Home", noOfTasks: 5, categoryImage: Image("task_home"), categoryId: 5),
-            TaskList(categoryName: "Shopping", noOfTasks: 11, categoryImage: Image("task_shopping"), categoryId: 6)
+            TaskList(categoryName:"Home" , noOfTasks: 5, categoryImage: Image("task_home"), categoryId: 5),
+            TaskList(categoryName:"Shopping", noOfTasks: 11, categoryImage: Image("task_shopping"), categoryId: 6)
         ]
         
         self.taskList = taskList

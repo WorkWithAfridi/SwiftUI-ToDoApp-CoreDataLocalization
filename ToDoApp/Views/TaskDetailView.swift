@@ -86,6 +86,8 @@ struct TaskDetailsCell:View {
     
     @ObservedObject var viewModel: LandingViewModel
     @State var task:Task!
+    @State private var isShowingDeleteConfirmation = false
+    @State private var taskToDelete: Task?
     
     var body: some View{
         HStack{
@@ -114,6 +116,37 @@ struct TaskDetailsCell:View {
             }
         }
         .padding()
+        .actionSheet(isPresented: $isShowingDeleteConfirmation) {
+            ActionSheet(
+                title: Text("Delete Task"),
+                message: Text("Are you sure you want to delete this task?"),
+                buttons: [
+                    .destructive(Text("Delete")) {
+                        if let taskToDelete = taskToDelete {
+                            CoreDataManager.shared.deleteTask(task: taskToDelete)
+                            viewModel.taskList = viewModel.getAllTaskList()
+                        }
+                    },
+                    .cancel(Text("Cancel"))
+                ]
+            )
+        }
+        .onLongPressGesture {
+            taskToDelete = task
+            isShowingDeleteConfirmation.toggle()
+        }
+        .gesture(
+            DragGesture()
+                .onEnded { value in
+                    if value.translation.width < 0 {
+                        // Perform action when swiping left
+                        let taskObj = task
+                        taskObj?.taskCompleted.toggle()
+                        CoreDataManager.shared.save()
+                        viewModel.taskList = viewModel.getAllTaskList()
+                    }
+                }
+        )
     }
 }
 

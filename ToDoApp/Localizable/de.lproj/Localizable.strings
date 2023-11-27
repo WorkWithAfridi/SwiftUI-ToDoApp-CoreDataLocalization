@@ -1,0 +1,30 @@
+/* 
+  Localizable.strings
+  ToDoApp
+
+  Created by Khondakar Afridi on 11/27/23.
+  
+*/
+"hello" = "Hallo Welt!";
+"New Task" = "Neue Aufgabe";
+"Todo App" = "Todo App auf Deutsch";
+"Work" = "Arbeiten";
+"Music" = "Musik";
+"Travel" = "Reisen";
+"Study" = "Studie";
+"Home" = "Heim";
+"Shoping" = "Einkaufen";
+"Gift" = "Geschenk";
+"Ideas" = "Ideen";
+"Payment" = "Zahlung";
+"Cooking" = "Kochen";
+"Health" = "Gesundheit";
+"Finance" = "Finanzen";
+"Others" = "Andere";
+"Select Category" = "Kategorie wählen";
+"add note" = "Notiz hinzufügen";
+"What are your planning?" = "Was planen Sie?";
+"Add" = "Hinzufügen";
+"Delete Task" = "Aufgabe löschen";
+"Are you sure you want to delete this task?" = "Sind Sie sicher, dass Sie diese Aufgabe löschen möchten?";
+"Language changed. Please restart the app." = "Sprache geändert. Bitte starten Sie die App neu.";

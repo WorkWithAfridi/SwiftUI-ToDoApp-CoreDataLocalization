@@ -16,6 +16,8 @@ struct LandingView: View {
     
     @StateObject var viewModel: LandingViewModel = LandingViewModel()
     @State var isPresentCreateTask:Bool = false
+    @State var isLangEng: Bool = false
+    @State private var showToast = false
     
     var body: some View {
         
@@ -35,11 +37,28 @@ struct LandingView: View {
                                 NavigationLink(
                                     destination: TaskDetailView(viewModel: viewModel, taskDetails: task)) {
                                     if task.isShow{
-                                        TaskCellView(taskImg: task.categoryImage, categoryName: task.categoryName, noOftask: task.noOfTasks)
+                                        if viewModel.isLangEng{
+                                            TaskCellView(taskImg: task.categoryImage, categoryName: task.categoryName, noOftask: task.noOfTasks)
+                                        } else{
+                                            TaskCellView(taskImg: task.categoryImage, categoryName: task.categoryName, noOftask: task.noOfTasks)
+                                        }
                                     }
                                 }
                             }
-                        })
+                        }
+                        
+                        
+                        )
+                        
+                        Button("Change Language to DE") {
+                            LanguageManager.shared.currentLanguage = "de" // Change to the desired language code
+                            showToast = true
+                            
+                        }
+                        Button("Change Language to EN") {
+                            LanguageManager.shared.currentLanguage = "en" // Change to the desired language code
+                            showToast = true
+                        }
                         Spacer()
                     }
                     .padding()
@@ -62,7 +81,10 @@ struct LandingView: View {
                     TaskEmptySateView()
                 }
             }
-            .navigationTitle("ToDo")
+            .toast(isPresented: $showToast, message:
+                    "Language changed. Please restart the app.")
+            .navigationTitle("Todo App")
+//            .navigationTitle( $viewModel.isLangEng ?  "ToDo in English" : "Todo auf Deutsch")
         }
         .fullScreenCover(isPresented: $isPresentCreateTask, content: {
             withAnimation {
@@ -99,7 +121,7 @@ struct TaskCellView:View {
                 Spacer()
                     .frame(height: 20)
                 VStack(alignment: .leading){
-                    Text(categoryName)
+                    Text(LocalizedStringKey(categoryName))
                         .fontWeight(.medium)
                         .foregroundColor(.black)
                     Text("\(noOftask) Tasks")
