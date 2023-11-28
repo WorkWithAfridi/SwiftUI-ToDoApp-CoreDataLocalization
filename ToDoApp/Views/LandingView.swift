@@ -29,6 +29,8 @@ struct LandingView: View {
                 else{
                     Color.black.opacity(0.05).edgesIgnoringSafeArea(.all)
                 }
+                if viewModel.taskList.count == 0{
+                }
                 ScrollView{
                     VStack{
                         //Collection View
@@ -36,29 +38,13 @@ struct LandingView: View {
                             ForEach(viewModel.taskList, id: \.categoryId){ task in
                                 NavigationLink(
                                     destination: TaskDetailView(viewModel: viewModel, taskDetails: task)) {
-                                    if task.isShow{
-                                        if viewModel.isLangEng{
-                                            TaskCellView(taskImg: task.categoryImage, categoryName: task.categoryName, noOftask: task.noOfTasks)
-                                        } else{
+                                        if task.isShow{
                                             TaskCellView(taskImg: task.categoryImage, categoryName: task.categoryName, noOftask: task.noOfTasks)
                                         }
                                     }
-                                }
                             }
                         }
-                        
-                        
                         )
-                        
-                        Button("Change Language to DE") {
-                            LanguageManager.shared.currentLanguage = "de" // Change to the desired language code
-                            showToast = true
-                            
-                        }
-                        Button("Change Language to EN") {
-                            LanguageManager.shared.currentLanguage = "en" // Change to the desired language code
-                            showToast = true
-                        }
                         Spacer()
                     }
                     .padding()
@@ -66,6 +52,17 @@ struct LandingView: View {
                 VStack{
                     Spacer()
                     HStack{
+                        if  LanguageManager.shared.currentLanguage == "en "{                            Button("Change Language: DE") {
+                                LanguageManager.shared.currentLanguage = "de"
+                                showToast = true
+                            }
+                        }
+                        if   LanguageManager.shared.currentLanguage == "de" {
+                            Button("Change Language: EN") {
+                                LanguageManager.shared.currentLanguage = "en"
+                                showToast = true
+                            }
+                        }
                         Spacer()
                         Button(action: {
                             isPresentCreateTask = true
@@ -73,9 +70,9 @@ struct LandingView: View {
                             Image(systemName: "plus.circle.fill")
                                 .resizable()
                                 .frame(width: 50, height: 50)
-                                .padding()
                         }
                     }
+                    .padding()
                 }
                 if viewModel.taskList.count == 0{
                     TaskEmptySateView()
@@ -83,8 +80,6 @@ struct LandingView: View {
             }
             .toast(isPresented: $showToast, message:
                     "Language changed. Please restart the app.")
-            .navigationTitle("Todo App")
-//            .navigationTitle( $viewModel.isLangEng ?  "ToDo in English" : "Todo auf Deutsch")
         }
         .fullScreenCover(isPresented: $isPresentCreateTask, content: {
             withAnimation {

@@ -19,15 +19,15 @@ struct TaskDetailView: View {
         ZStack{
             Color.blue.edgesIgnoringSafeArea(.all)
             VStack(alignment:.leading){
-                TaskDetailsHeader(taskDetails: taskDetails)
+                TaskDetailsHeader(taskDetails: taskDetails, viewModel: viewModel)
                 List{
                     ForEach(taskDetails.taskList) { task in
                         TaskDetailsCell(viewModel: viewModel, task: task)
                     }
                 }
                 .cornerRadius(20)
-                .padding(.bottom, -40)
             }
+            .padding()
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarTitleDisplayMode(.inline)
@@ -52,33 +52,60 @@ struct TaskDetailView_Previews: PreviewProvider {
 }
 
 struct TaskDetailsHeader:View {
-    
     @State var taskDetails:TaskList!
-    
+    @State private var isShowingDeleteConfirmation = false
+    @State private var taskToDelete: Task?
+    @ObservedObject var viewModel: LandingViewModel
     var body: some View{
-        VStack(alignment:.leading){
-            Circle()
-                .frame(width: 40, height: 40)
-                .foregroundColor(.white)
-                .overlay(
-                    taskDetails.categoryImage
-                        .resizable()
-                        .frame(width: 28, height: 28)
-                )
-            
-            Text(taskDetails.categoryName)
+        HStack{
+            VStack(alignment:.leading){
+                Circle()
+                    .frame(width: 40, height: 40)
+                    .foregroundColor(.white)
+                    .overlay(
+                        taskDetails.categoryImage
+                            .resizable()
+                            .frame(width: 28, height: 28)
+                    )
+                
+                Text(LocalizedStringKey(taskDetails.categoryName))
                 .font(.title2)
                 .fontWeight(.bold)
                 .foregroundColor(.white)
-            
-            Text("\(taskDetails.noOfTasks) tasks")
-                .foregroundColor(.white.opacity(0.8))
-                .font(.callout)
-            
+                
+                Text("\(taskDetails.noOfTasks) tasks")
+                    .foregroundColor(.white.opacity(0.8))
+                    .font(.callout)
+                
+                Spacer()
+                    .frame(height: 30)
+            }
             Spacer()
-                .frame(height: 30)
+            Button {
+                taskToDelete = taskDetails.taskList.first
+                isShowingDeleteConfirmation.toggle()
+            } label: {
+                Text("Delete")
+                    .foregroundColor(.white)
+                    .bold()
+            }
         }
         .padding()
+        .actionSheet(isPresented: $isShowingDeleteConfirmation) {
+            ActionSheet(
+                title: Text("Delete Task"),
+                message: Text("Are you sure you want to delete this task?"),
+                buttons: [
+                    .destructive(Text("Delete")) {
+                        if let taskToDelete = taskToDelete {
+                            CoreDataManager.shared.deleteTask(task: taskToDelete)
+                            viewModel.taskList = viewModel.getAllTaskList()
+                        }
+                    },
+                    .cancel(Text("Cancel"))
+                ]
+            )
+        }
     }
 }
 
@@ -86,8 +113,6 @@ struct TaskDetailsCell:View {
     
     @ObservedObject var viewModel: LandingViewModel
     @State var task:Task!
-    @State private var isShowingDeleteConfirmation = false
-    @State private var taskToDelete: Task?
     
     var body: some View{
         HStack{
@@ -116,25 +141,6 @@ struct TaskDetailsCell:View {
             }
         }
         .padding()
-        .actionSheet(isPresented: $isShowingDeleteConfirmation) {
-            ActionSheet(
-                title: Text("Delete Task"),
-                message: Text("Are you sure you want to delete this task?"),
-                buttons: [
-                    .destructive(Text("Delete")) {
-                        if let taskToDelete = taskToDelete {
-                            CoreDataManager.shared.deleteTask(task: taskToDelete)
-                            viewModel.taskList = viewModel.getAllTaskList()
-                        }
-                    },
-                    .cancel(Text("Cancel"))
-                ]
-            )
-        }
-        .onLongPressGesture {
-            taskToDelete = task
-            isShowingDeleteConfirmation.toggle()
-        }
         .gesture(
             DragGesture()
                 .onEnded { value in

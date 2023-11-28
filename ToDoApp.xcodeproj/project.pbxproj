@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -26,6 +26,8 @@
 		74C128ED26AD258E00324D35 /* NewTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C128EC26AD258E00324D35 /* NewTask.swift */; };
 		74C128EF26AD370B00324D35 /* NewTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C128EE26AD370B00324D35 /* NewTaskViewModel.swift */; };
 		74C128F126AD5A7300324D35 /* TaskDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C128F026AD5A7300324D35 /* TaskDetailView.swift */; };
+		EF3E11162B15FC960093F6C7 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = EF3E11152B15FC960093F6C7 /* Lottie */; };
+		EF3E111A2B15FCC90093F6C7 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3E11192B15FCC90093F6C7 /* LottieView.swift */; };
 		EF659DCC2B14936100E90287 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EF659DCE2B14936100E90287 /* Localizable.strings */; };
 		EF659DD12B14A5E800E90287 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF659DD02B14A5E800E90287 /* LanguageManager.swift */; };
 		EF659DD32B14A9A600E90287 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF659DD22B14A9A600E90287 /* Toast.swift */; };
@@ -53,6 +55,8 @@
 		74C128EC26AD258E00324D35 /* NewTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTask.swift; sourceTree = "<group>"; };
 		74C128EE26AD370B00324D35 /* NewTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskViewModel.swift; sourceTree = "<group>"; };
 		74C128F026AD5A7300324D35 /* TaskDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailView.swift; sourceTree = "<group>"; };
+		EF3E11192B15FCC90093F6C7 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		EF3E111B2B15FE1D0093F6C7 /* empty.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = empty.json; sourceTree = "<group>"; };
 		EF659DCD2B14936100E90287 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EF659DCF2B14936900E90287 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EF659DD02B14A5E800E90287 /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
@@ -64,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF3E11162B15FC960093F6C7 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +115,7 @@
 				744B225B26A98FB600AB08E7 /* ToDoAppApp.swift */,
 				74C128E726AD21C900324D35 /* CoreDataManager.swift */,
 				744B225D26A98FB600AB08E7 /* ContentView.swift */,
+				EF3E111B2B15FE1D0093F6C7 /* empty.json */,
 				744B225F26A98FB900AB08E7 /* Assets.xcassets */,
 				744B226426A98FB900AB08E7 /* Info.plist */,
 				744B226126A98FB900AB08E7 /* Preview Content */,
@@ -133,6 +139,7 @@
 				74C128EC26AD258E00324D35 /* NewTask.swift */,
 				74C128F026AD5A7300324D35 /* TaskDetailView.swift */,
 				EF659DD22B14A9A600E90287 /* Toast.swift */,
+				EF3E11192B15FCC90093F6C7 /* LottieView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -180,6 +187,9 @@
 			dependencies = (
 			);
 			name = ToDoApp;
+			packageProductDependencies = (
+				EF3E11152B15FC960093F6C7 /* Lottie */,
+			);
 			productName = ToDoApp;
 			productReference = 744B225826A98FB600AB08E7 /* ToDoApp.app */;
 			productType = "com.apple.product-type.application";
@@ -208,6 +218,9 @@
 				de,
 			);
 			mainGroup = 744B224F26A98FB600AB08E7;
+			packageReferences = (
+				EF3E11142B15FC960093F6C7 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = 744B225926A98FB600AB08E7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -252,6 +265,7 @@
 				74C128EB26AD231400324D35 /* ToDoApp.xcdatamodeld in Sources */,
 				744B225E26A98FB600AB08E7 /* ContentView.swift in Sources */,
 				744B227026A9904C00AB08E7 /* LandingViewModel.swift in Sources */,
+				EF3E111A2B15FCC90093F6C7 /* LottieView.swift in Sources */,
 				74C128E826AD21C900324D35 /* CoreDataManager.swift in Sources */,
 				744B225C26A98FB600AB08E7 /* ToDoAppApp.swift in Sources */,
 			);
@@ -324,7 +338,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -380,7 +394,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -456,6 +470,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EF3E11142B15FC960093F6C7 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EF3E11152B15FC960093F6C7 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF3E11142B15FC960093F6C7 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		74C128E926AD231400324D35 /* ToDoApp.xcdatamodeld */ = {

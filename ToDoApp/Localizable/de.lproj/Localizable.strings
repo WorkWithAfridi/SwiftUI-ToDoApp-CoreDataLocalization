@@ -28,3 +28,5 @@
 "Delete Task" = "Aufgabe löschen";
 "Are you sure you want to delete this task?" = "Sind Sie sicher, dass Sie diese Aufgabe löschen möchten?";
 "Language changed. Please restart the app." = "Sprache geändert. Bitte starten Sie die App neu.";
+"All" = "Alle";
+"Delete" = "Löschen";
