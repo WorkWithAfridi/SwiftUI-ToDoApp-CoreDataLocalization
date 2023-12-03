@@ -1,10 +1,3 @@
-//
-//  LanguageManager.swift
-//  ToDoApp
-//
-//  Created by Khondakar Afridi on 11/27/23.
-//
-
 import Foundation
 
 class LanguageManager {

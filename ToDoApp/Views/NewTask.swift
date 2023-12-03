@@ -1,10 +1,3 @@
-//
-//  NewTask.swift
-//  ToDoApp
-//
-//  Created by Sabari on 25/07/21.
-//
-
 import SwiftUI
 
 
@@ -54,12 +47,12 @@ struct NewTaskView: View {
                 Button(action: {
                     if txtTask == ""{
                         alertTitle = "Oops"
-                        alertSubTitle = "Please enter Task name"
+                        alertSubTitle = LanguageManager.shared.currentLanguage == "de" ? "Bitte geben Sie den Aufgabennamen ein": "Please enter Task name"
                         isShowAlert = true
                     }
                     else if categoryName == "Select Category"{
                         alertTitle = "Oops"
-                        alertSubTitle = "Please select category"
+                        alertSubTitle = LanguageManager.shared.currentLanguage == "de" ? "Bitte Kategorie auswählen" : "Please select category"
                         isShowAlert = true
                     }
                     else{
@@ -183,8 +176,8 @@ struct NewTaskBottomView: View{
                 VStack{
                     Text(
                         LocalizedStringKey(categoryName)
-                        )
-                        .foregroundColor(categoryName == "Select Category" ? .gray : .black)
+                    )
+                    .foregroundColor(categoryName == "Select Category" ? .gray : .black)
                 }
                 Spacer()
             }
@@ -214,9 +207,9 @@ struct CategoryView: View{
                             .frame(width: 20, height: 20)
                         Text(
                             LocalizedStringKey(cat.categoryName)
-                            )
-                            .font(.callout)
-                            .fontWeight(.regular)
+                        )
+                        .font(.callout)
+                        .fontWeight(.regular)
                         Spacer()
                     }
                     .onTapGesture {

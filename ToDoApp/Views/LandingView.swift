@@ -1,10 +1,3 @@
-//
-//  LandingView.swift
-//  ToDoApp
-//
-//  Created by Sabari on 22/07/21.
-//
-
 import SwiftUI
 
 struct LandingView: View {
@@ -52,14 +45,14 @@ struct LandingView: View {
                 VStack{
                     Spacer()
                     HStack{
-                        if  LanguageManager.shared.currentLanguage == "en "{                            Button("Change Language: DE") {
-                                LanguageManager.shared.currentLanguage = "de"
-                                showToast = true
-                            }
-                        }
                         if   LanguageManager.shared.currentLanguage == "de" {
                             Button("Change Language: EN") {
                                 LanguageManager.shared.currentLanguage = "en"
+                                showToast = true
+                            }
+                        } else {
+                            Button("Change Language: DE") {
+                                LanguageManager.shared.currentLanguage = "de"
                                 showToast = true
                             }
                         }
@@ -138,6 +131,7 @@ struct TaskEmptySateView: View {
             Image("task_empty")
                 .resizable()
                 .frame(width: 200, height: 200, alignment: .center)
+            Text("You don't have any Tasks listed")
         }
         .frame(width: UIScreen.main.bounds.width - 20, height: UIScreen.main.bounds.width - 60)
     }

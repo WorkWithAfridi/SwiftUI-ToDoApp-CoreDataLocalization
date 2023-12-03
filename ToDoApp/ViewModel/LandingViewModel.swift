@@ -1,10 +1,3 @@
-//
-//  LandingViewModel.swift
-//  ToDoApp
-//
-//  Created by Sabari on 22/07/21.
-//
-
 import Foundation
 import SwiftUI
 
@@ -101,7 +94,6 @@ class LandingViewModel: ObservableObject {
             return Image("task_all")
         }
     }
-    
 }
 
 

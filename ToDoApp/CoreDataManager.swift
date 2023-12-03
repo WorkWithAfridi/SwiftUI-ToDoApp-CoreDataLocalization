@@ -1,10 +1,3 @@
-//
-//  CoreDataManager.swift
-//  ToDoApp
-//
-//  Created by Sabari on 25/07/21.
-//
-
 import Foundation
 import CoreData
 
@@ -37,13 +30,10 @@ class CoreDataManager {
         }
     }
     
-    
     /// Get All Task
     /// - Returns: [Task]
     func getAllTask() -> [Task]{
-        
         let request: NSFetchRequest<Task> = Task.fetchRequest()
-        
         do{
             return try viewContext.fetch(request)
         }

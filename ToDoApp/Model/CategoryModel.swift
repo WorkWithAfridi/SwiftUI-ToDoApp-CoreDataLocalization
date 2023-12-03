@@ -1,10 +1,3 @@
-//
-//  CategoryModel.swift
-//  ToDoApp
-//
-//  Created by Sabari on 25/07/21.
-//
-
 import Foundation
 
 
@@ -31,5 +24,5 @@ func getCategoryList()->[Categories]{
              Categories(id: 11,  categoryName: "Health", categoryImage: "task_health"),
              Categories(id: 12, categoryName: "Finance", categoryImage: "task_finance"),
              Categories(id: 13, categoryName: "Others", categoryImage: "task_others")
-        ]
+    ]
 }

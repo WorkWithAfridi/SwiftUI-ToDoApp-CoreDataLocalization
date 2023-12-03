@@ -1,9 +1,3 @@
-//
-//  LottieView.swift
-//  ToDoApp
-//
-//  Created by Khondakar Afridi on 11/28/23.
-//
 import Lottie
 import SwiftUI
 

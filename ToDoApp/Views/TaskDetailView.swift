@@ -1,10 +1,3 @@
-//
-//  TaskDetailView.swift
-//  ToDoApp
-//
-//  Created by Sabari on 25/07/21.
-//
-
 import SwiftUI
 import Foundation
 import UIKit
